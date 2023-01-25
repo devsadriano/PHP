@@ -49,3 +49,11 @@
 
 //depois vou usar comando p regenerar o autoload
 // composer dump-autoload
+// agora so colocar caminho no arquivo 
+// require 'vendor/autoload.php';
+// e tem dois jeitos pelo use ou colocando o caminho
+// use \classess\matematica\Basica;    $m = new Basica();
+// ou $m = new \classess\matematica\Basica();
+
+//Para utilizar uma classe já existente em seu projeto no autoload do composer, qual alteração deve ser realizada?
+//A classe deve ser referenciada no autoload do composer, fazendo alteração no arquivo composer.json.

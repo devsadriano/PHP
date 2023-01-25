@@ -3,10 +3,25 @@
 //toda classe tem q ter namespace
 //nesse exemplo estou definindo q todos arquivos vao ficar dentro pasta classes 
 
-require 'vendor/autoload.php';
+// require 'vendor/autoload.php';
 
-$m = new \classess\matematica\Basica();
-echo $m->somar(10, 20);
+// use \classess\matematica\Basica;
 
-// $e = new foto\Upload();
-// echo $e->somar(10, 20);
+// //use Monolog\Level;
+// use Monolog\Logger;
+// use Monolog\Handler\StreamHandler;
+
+// // create a log channel
+// $log = new Logger('name');
+// $log->pushHandler(new StreamHandler('teste.log', Logger::WARNING));
+
+// $m = new Basica();
+// // $m = new \classess\matematica\Basica();
+// echo $m->somar(10, 20);
+
+// // add records to the log
+// $log->warning('Foo');
+// $log->error('Bar');
+
+// // $e = new foto\Upload();
+// // echo $e->somar(10, 20);
