@@ -1,0 +1,130 @@
+startar o servidor
+php -S localhost:8080
+
+isset siginifica se está setado
+isset($sobrenome) se existe essa variavel $sobrenome
+
+Apache recebe a requisição
+
+Manda pro local correto
+(no caso estamos mandando pra php1)
+
+Chama o PHP pra interpretar o codigo PHP
+(entao dentro da pasta no arquivo index ele vai interpretar só o q tem PHP)
+
+O PHP manda o resultado p o Apache
+
+O Apache junta o que não é interpretavel e manda pro usuario
+
+Opa 
+<?php 
+tudo o q ta aqui dentro é codigo php
+?> 
+
+
+*******************************
+Array Spread
+
+jeito sem spred
+<?php
+$bolo1 = [
+    'acucar', 
+    'farinha', 
+    'ovo',
+    'leite',
+    'fermento'
+];
+
+$bolo2 = [
+    'acucar', 
+    'farinha', 
+    'ovo',
+    'leite',
+    'fermento',
+    'corante'
+];
+
+com Spread
+<?php
+$bolo1 = [
+    'acucar', 
+    'farinha', 
+    'ovo',
+    'leite',
+    'fermento'
+];
+
+$bolo2 = [
+    ...$bolo1,
+    'corante'
+];
+echo $bolo2[2];
+
+outro exemplo
+$lista1 = ['adrinao', 'andreia', 'vava'];
+$lista2 = ['fefe', 'tutu', 'paula'];
+$lista3 = ['...$lista1','...$lista2'];
+
+
+
+1exercicio
+<?php
+$lista = [
+    'nome'=>'Beto',
+    'idade'=>90,
+    'atributos'=> [
+        'forca'=>60,
+        'agilidade'=>80,
+        'destreza'=>50,
+    ],
+    vida=>1000
+    mana=>928
+];
+
+echo "NOME: ".$lista['nome']."<br/>";
+echo "FORÇA: ".$lista['atributos']['forca']."<br/>";
+echo "VIDA: ".$lista['vida']."<br/>";
+
+solução1
+<?php
+$atributos = [$força = 60,
+            $agilidade = 80,
+            $destreza = 50,
+];
+$lista = [$nome = 'Renato',
+        $idade = 49,
+        ...$atributos,
+        $vida = 1000,
+        $mana = 928,
+];
+
+echo "Nome: ".$lista[0]."<br/>";
+echo "Força: ".$lista[2]."<br/>";
+echo "Vida: ".$lista[5]."<br/>";
+
+
+solução2
+<?php
+$lista = [
+'nome'=>'Beto',
+'idade'=>90,
+'atributos'=> [
+'forca'=>60,
+'agilidade'=>80,
+'destreza'=>50,
+],
+'vida'=>1000,
+'mana'=>928,
+];
+
+echo "NOME: ".$lista['nome']."<br/>";
+echo "FORÇA: ".$lista['atributos']['forca']."<br/>";
+echo "VIDA: ".$lista['vida']."<br/>";
+
+
+
+
+<?php
+require('../config.php');
+
+?>

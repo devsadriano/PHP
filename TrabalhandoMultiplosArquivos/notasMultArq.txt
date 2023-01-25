@@ -1,0 +1,11 @@
+Como fazer p incluir uma pagina em outra? 
+Atraves include e require
+
+require('header.php'); 
+obs: se eu colocar arquivo q n existe ele da msg de erro e para programa
+
+include('header.php');
+obs: ja no include da msg mas continua a execucao programa 
+
+require_once('header.php'); 
+obs: once significa uma unica vez, entao se eu der comando ele so traz uma vez
