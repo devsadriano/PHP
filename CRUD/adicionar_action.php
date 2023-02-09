@@ -5,7 +5,7 @@ $name = filter_input(INPUT_POST, 'name');
 $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
 if ($name && $email) {
-    $sql = $pdo->prepare("SELECT * FROM schemaphp.usuarios WHERE email = '$email'");
+    $sql = $pdo->prepare("SELECT * FROM schemaphp.usuarios WHERE email = $email");
     $sql->bindValue(':email', $email);
     $sql->execute();
 
