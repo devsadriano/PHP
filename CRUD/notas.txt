@@ -58,3 +58,8 @@ select *  from schemaphp.usuarios
 
 
 
+
+<input type="hidden" name="id" value="<?=$info['id'];?>">
+
+
+
