@@ -1,6 +1,7 @@
 startar o servidor
 php -S localhost:8080
 
+
 isset siginifica se está setado
 isset($sobrenome) se existe essa variavel $sobrenome
 

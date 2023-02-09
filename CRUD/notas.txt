@@ -1,0 +1,60 @@
+//  CRUD create read update delete
+//sistema estoque 
+//adicona produtos, le os produtos, altera informacoes sobre produtos, deleta produtos
+
+
+
+--INSERT into schemaphp.testephpp (name, email, acoes) values ('adriano', 'ad@gm.com', 'a') 
+--  UPDATE schemaphp.testephpp
+--  SET name = 'adriano', email = 'adr@gm.com', acoes ='teste' WHERE name = 'a';
+SELECT * FROM schemaphp.testephpp;
+
+
+
+
+
+<?php
+$pdo = new PDO("pgsql:dbname=php_bonieky;host=localhost", "postgres", "spfc1695");
+
+$sql = $pdo->query('SELECT * FROM schemaphp.usuarios');
+
+//echo "TOTAL: ".$sql->rowCount();
+
+$dados = $sql->fetchAll( PDO::FETCH_ASSOC );
+
+echo '<pre>';
+print_r($dados);
+
+
+
+
+
+<table border="1" width="100%">
+    <tr>
+        <th>ID</th>
+        <th>NOME</th>
+        <th>EMAIL</th>
+        <th>AÇÕES</th>
+    </tr>
+    <?php foreach($lista as $usuario): ?>
+        <tr>
+            <td><?php echo $usuario['id']; ?></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+
+
+
+--insert into schemaphp.usuarios (id, nome, email, acoes) values (1, 'adriano', 'adr@gmail.com', 'ok')
+select *  from schemaphp.usuarios
+
+
+[PHP] - Leia as proposições abaixo e julgue V para verdadeiro e F para falso. 1 - O método fetchAll() retorna apenas um único registro. 2 - O método estático FETCH_ASSOC pertence a classe PDO. 3 - Não é necessário armazenar os dados retornados do banco de dados num array vazio.
+
+1 - F; 2 - V; 3 - F;
+
+
+

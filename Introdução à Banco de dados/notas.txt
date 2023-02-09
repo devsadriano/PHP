@@ -1,0 +1,63 @@
+O que é PDO no PHP?
+Módulo do PHP padronizado para se conectar com um banco de dados.
+
+Banco de dados onde ficar armazenado os dados q vou usar no sistema
+apache e PHP 
+MYSQL  inserir alterar remover,
+BD e onde guardo as informacoes no MYSQL 
+
+[PHP] - Julgue as proposições abaixo com V para verdadeiro e F para falso. 1 - O MySQL é um banco de dados; 2 - Uma tabela é composta de colunas e linhas; 3 - O PHP é a única linguagem de programação que se comunica com um banco de dados.
+1 - F; 2 - V; 3 - F;
+
+De acordo com uma estrutura de uma tabela em um banco de dados, qual principal campo para identificação de um registro na tabela ?
+id
+
+[PHP] - Julgue as proposições abaixo com V para verdadeiro e F para falso. 1 - Ao configurar as colunas de uma tabela, a coluna id deve ser do tipo VARCHAR; 2 - Ao configurar as colunas de uma tabela, a coluna id não deve ser auto incrementável; 3 - Por convenção, apenas a coluna id de uma tabela não deve ser configurada como chave primária.
+
+Das alternativas a seguir, qual não faz parte de uma modificação no banco de dados ?
+INSERT
+UPDATE
+DELETE
+           POST  x
+
+
+Conectando ao Banco de Dados com PDO
+PDO serve pra conectar c varios BD ele tem drivers, funcionalidades pra conectar dentro deles MYSQL
+PDO é uma classe q eu vou instanciar ou seja vou gerar um objeto
+
+
+
+<?php
+//aqui passamos uns itens no construtor dessa classe
+//primeiro serie comando q gente especifica os dadosn iniciais de conexao do BD por exemplo qual é o tipo de BD
+// mysql =  tipo BD
+// dbname= = data base nome BD que é test
+// host= = ou seja onde é q tá o BD onde ele tá funcionando no caso é localhost ou 127.0.0.1 ou o IP
+//agora preciso dizer a ele o usuario e senha no segundo e terceiro parametro
+//$pdo = new PDO("mysql:dbname=test;host=localhost", "root", ""); //dados iniciais inseridos
+//$pdo = new PDO("mysql:dbname=test;host=localhost", "root"); //qdo n tem senha pode ficar assim
+$pdo = new PDO("pgsql:dbname=tutorial;host=localhost", "postgres", "spfc1695");
+//agora teste se n der erro e pq funciono
+
+//depois q foi feita conexao vamos pegar um dado no caso pegar lista informacoes q tem la
+// query(''); é consulta pode ser inserir atualizar deletar
+$sql = $pdo->query('SELECT * FROM usuarios');
+
+// quero saber quantos itens tem
+// row significa linha ou seja contagem linhas 
+echo "TOTAL: " . $sql->rowCount();
+
+// agora vou mostrar na tela
+$dados = $sql->fetchAll( PDO::FETCH_ASSOC );
+// fetchAll ou seja pegar todos
+// no parametro definimos a associacao q queremos senao ira duplicar
+//vamos usar uma constante estatica do PDO ou seja PDO::FETCH_ASSOC iso vai fazer com q ele associe entao n vai ter mais essa duplicidade de dados  
+echo '<pre>';
+print_r($dados);
+
+
+
+--INSERT into schemaphp.testephpp (name, email, acoes) values ('adriano', 'ad@gm.com', 'a') 
+-- UPDATE schemaphp.testephpp
+-- SET id = 1 WHERE name = 'adrinao';
+SELECT * FROM schemaphp.testephpp;
