@@ -10,7 +10,7 @@ if ($name && $email) {
     $sql->execute();
 
     if ($sql->rowCount() === 0) {
-        $sql = $pdo->prepare("INSERT INTO schemaphp.usuarios (nome, email) VALUES(:name, :email)"); // e um template
+        $sql = $pdo->prepare("INSERT INTO schemaphp.usuarios (name, email) VALUES(:name, :email)"); // e um template
         $sql->bindValue(':name', $name); 
         $sql->bindValue(':email', $email);
         $sql->execute();        

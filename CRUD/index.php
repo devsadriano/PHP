@@ -24,7 +24,7 @@ if ($sql->rowCount() >0) {
     <?php foreach($lista as $usuario): ?>
         <tr>
             <td><?php echo $usuario['id']; ?></td>
-            <td><?php echo $usuario['nome']; ?></td>
+            <td><?php echo $usuario['name']; ?></td>
             <td><?php echo $usuario['email']; ?></td>
             <td>
                 <a href="editar.php?id=<?php echo $usuario['id']; ?>">[ Editar ]</a>
