@@ -85,7 +85,10 @@ class UsuarioDAOMySQL implements UsuarioDAO{
     }
 
     public function delete($id){
-        
+        $sql = $this->pdo->prepare("DELETE FROM schemaphp.usuarios 
+                                    WHERE id = :id");
+        $sql->bindValue(':id', $id);
+        $sql->execute();
     }
 }
 
