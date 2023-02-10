@@ -106,7 +106,61 @@ foreach ($data as $item) {
 e retornar esses objetos
 return $array;
 
+ate agora fizemos findAll ou seja o head do crud
+agora estamos manipulando as informacoes do usuario tanto aqui no findAll na hora de retornar
 
+foreach ($data as $item) {
+                $u = new Usuario();
+                $u->setId($item['id']);
+                $u->setNome($item['name']);
+                $u->setEmail($item['email']);
+
+                $array[] = $u;
+            }
+ 
+quanto no index q so esta puxando os dados $usuarioDao->findAll();
+e usando eles
+<?php foreach($lista as $usuario): ?>
+        <tr>
+            <td><?=$usuario->getId();?></td>
+            <td><?=$usuario->getNome();?></td>
+            <td><?=$usuario->getEmail();?></td>
+            <td>
+                <a href="editar.php?id=<?=$usuario->getId();?>">[ Editar ]</a>
+                <a href="excluir.php?id=<?$usuario->getId(); ?>" 
+                    onclick="return confirm('Tem certeza que deseja excluir?')" >[ Excluir ]
+                </a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+
+    Uma classe de insersão de dados no banco via DAO precisa obrigatoriamente:
+    Instanciar o PDO para ter acesso ao banco.
+
+    agora vamos mexex noa dicionar
+
+    agora vamos implementar
+    ele ta buscando um usuario a partir do email
+    entao precisamos dele em Usuarios
+        public function findByEmail($email);
+
+agora procuramos o email findByEmail($email) === false)
+nao acho false ele vai criar Usuario
+$novoUsuario = new Usuario();
+        $novoUsuario ->setNome($name);
+        $novoUsuario ->setEmail($email);
+e joga ele no DAO
+$usuarioDao->add($novoUsuario);
+ele ele vai jogar no BD e depois volta pro index
+com isso se quisermos mudar de BD p oracle por exemplo so alteramos 
+$usuarioDao = new UsuarioDAOMySQL($pdo);
+para 
+$usuarioDao = new UsuarioDAOOracle($pdo);
+
+
+****
+agora precisamos criar findByEmail e add
+findByEmail rele vai retornar o proprio email ou false
 
 
 
