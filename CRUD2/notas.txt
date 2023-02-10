@@ -163,6 +163,14 @@ agora precisamos criar findByEmail e add
 findByEmail rele vai retornar o proprio email ou false
 
 
+Criando um DAO na prática (4/5)
+vamos usar o findById p fazer as alteracoes
+agora eu recebo o $info e ele vai ser um objeto da classe Usuario e caso ele n acha esse id ele vai ser um boolean
+
+    $usuario = UsuarioDAO->findById($id);
+qui ele vai substituir usuario se n tiver 
+
+
 
 
 

@@ -37,7 +37,7 @@ class UsuarioDAOMySQL implements UsuarioDAO{
     }
 
     public function findByEmail($email){
-        $sql = $this->pdo->prepare("SELECT * FROM schemaphp.usuarios WHERE email = '$email'");
+        $sql = $this->pdo->prepare("SELECT * FROM schemaphp.usuarios WHERE email = :email");
         $sql->bindValue(':email',$email);
         $sql->execute();
         if ($sql->rowCount() > 0) {
@@ -55,11 +55,33 @@ class UsuarioDAOMySQL implements UsuarioDAO{
     }
 
     public function findById($id){
-        
+        $sql = $this->pdo->prepare("SELECT * FROM schemaphp.usuarios WHERE id = :id");
+        $sql->bindValue(':id',$id);
+        $sql->execute();
+        if ($sql->rowCount() > 0) {
+            $data = $sql->fetch();
+
+            $u = new Usuario();
+            $u->setId($data['id']);
+            $u->setNome($data['name']);
+            $u->setEmail($data['email']);
+
+            return $u;
+        } else {
+            return false;
+        }
     }
 
     public function update(Usuario $u){
-        
+        $sql = $this->pdo->prepare("UPDATE schemaphp.usuarios 
+                                    SET name = :name, email = :email 
+                                    WHERE id = :id");
+        $sql->bindValue(':name', $u->getNome());
+        $sql->bindValue(':email', $u->getEmail());
+        $sql->bindValue(':id', $u->getId());
+        $sql->execute();
+
+        return true;
     }
 
     public function delete($id){
