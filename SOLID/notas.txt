@@ -1,0 +1,18 @@
+S - Single Responsibility Principe (principio de responsabilidade unica)
+O - Open-Closed Principle (principio de substrcao de liskov)
+L - Liskov Substution Principe (principio de segregacao da interface)
+I - Interface Segregation Principle (principio de segregacao da interface)
+D - Dependecy Inversion Principle (principio de inversao de dependencia)
+
+O que significa o conceito SOLID no PHP ?
+Princípios com regras básicas para manter o código com um padrão definido.
+
+uma classe tem q ter apenas uma responsabilidade
+
+############################################################################################
+############################################################################################
+############################################################################################
+############################################################################################
+SOLID: O - Princípio Aberto-Fechado
+Objetos ou classes entidades etc elas devem estar abertas p extensão mais fechadas p modificação
+
