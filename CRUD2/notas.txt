@@ -1,0 +1,117 @@
+Conceito Data Access Object (DAO)
+
+Utilizando o conceito DAO para manipulação de dados, qual das alternativas a seguir é a correta no que se trata da utilização do DAO em um sistema?
+Há necessidade de uma classe com métodos para a utilização do DAO para acesso ao banco.
+
+
+CLASSE USUARIO
+-id
+-nome
+-email
+
+-getid
+-setid
+
+-getnome
+-setnome
+
+-getemail
+-setemail
+
+CLASSE USUARIODAO
+-add(nome,email)
+
+PASSO 1 PARA ADD USUARIO NOVO:
+Cria a classe do novo usuario
+
+$usuario = new Usuario();
+$usuario->setNome('fulano');
+$usuario->setEmail('fulano@usuario.com');
+aqui eu crio o usuario o objeto
+
+e ogo ele pra adcionar aqui no BD
+$usuarioDAO->add($usuario);
+
+quero adicoiionar usuario
+-crio o objeto do usuario a ser adicionado
+-mando o objeto para o intermediario
+-o intermediario faz a comunicacao com o BD
+
+
+trim($i);
+vai tirar os espacos de um lado e do outro caso no futuro eu queira colcoar numeros ou palavras
+
+public function setNome($n){
+        $this->id = ucwords(trim($n));
+    }
+ucwords primeira letra maiuscula
+
+public function setEmail($e){
+        $this->id = strtolower(trim($e));
+    }
+colcoar email em minusculo
+
+primeiro passo pra implementar DAO foi crirar classe Usuario
+agora vamos p 2 etapa criar segunda classe q vai manipular o BD vamos padronizar 
+e para isso usamos interface entao vamos criar uma interface do usuario 
+interface UsuarioDAO{
+    public function add(Usuario $u);
+o add recebe um objeto da classe Usuario
+
+public function findAll(); // pegue todo mundo ou seja vai pegar varios objetos da classe usuario 
+
+public function findById($id); pegar um caro so atraves do id recebe uma instancia da classe usuario
+
+public function update(Usuario $u);
+public function delete($id);
+
+com isso fizemos o crud
+add create
+head findAll e findById
+update e delete
+
+agora vamos fazer implementacao do usuarioDAO p mysql
+require_once  fzmos isso se quisermos usarmos em outro lugar
+require_once '../models/Usuario.php'; ouxo a classe
+
+vamos precisar pdo entao vmaos receber esse pdo de fora atraves injecao de dependencia
+private $pdo;
+
+agora qdo eu instanciar minha classe UsuarioDAOMySQL eu vou preceisar mandar tbbm o driver ou cara q ta efetivamente ffazendo essa manipulação q é o proprio pdo
+public function __construct(PDO $driver){
+        $this->pdo = $driver;
+    }
+
+agora vamos fazer implementacao do findAll findById update delete
+como ja temos o $pdo e o $driver podemos comecar 
+
+
+em CRUD2\index.php
+require 'dao/UsuarioDAOMySQL.php';  
+$usuarioDao = new UsuarioDAOMySQL($pdo);  // aqui instanciamos ele
+agora vmaos pegar lista de usuarios
+$usuarioDao->findAll() //vai retornar um array  c todos itens e vao ser objetos da classe usuario
+
+public function findAll(){ // 
+vai pegar todos usuarios do BD $sql = $this->pdo->query("SELECT * FROM schemaphp.usuarios");
+depois trasformar em objetos  do tipo Usuario
+foreach ($data as $item) {
+                $u = new Usuario();
+                $u->setId('id');
+                $u->setNome('nome');
+                $u->setEmail('email');
+
+                $array[] = $u;
+
+e retornar esses objetos
+return $array;
+
+
+
+
+
+
+
+
+
+
