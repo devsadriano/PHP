@@ -16,3 +16,6 @@ uma classe tem q ter apenas uma responsabilidade
 SOLID: O - Princípio Aberto-Fechado
 Objetos ou classes entidades etc elas devem estar abertas p extensão mais fechadas p modificação
 
+Do que se trata o conceito conhecido como o Princípio Aberto-Fechado do SOLID?
+Princípio que abre classes para extensões e fecha para modificações.
+
