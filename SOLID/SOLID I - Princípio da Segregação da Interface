@@ -1,0 +1,35 @@
+//SOLID: I - Princípio da Segregação da Interface
+O interface/implements é um dos recursos não obrigatórios do PHP que serve para organizar e padronizar métodos que devem ser declarados numa classe.
+1 - Ao criar uma interface, as classes que receberem o implements dela, serão obrigadas a ter todos os métodos declarados na interface.
+2 - Interfaces não podem ser estendidas como as classes.
+3 - Todos os métodos de uma interface devem ser públicos.
+Leia atentamente as proposições acima e julgue V para verdadeiro e F para falso.
+1 - V; 2 - F; 3 - V;
+
+
+<?php
+interface Aves {
+    public function setLocation($latitute, $longitude);
+    public function setAltitude($altitude);
+    public function render();    
+}
+
+interface AvesQueVoam extends Aves {
+    public function setAltitude($altitude);
+}
+
+class Papagaio implements AvesQueVoam {
+    public function setLocation($latitute, $longitude){}
+    public function setAltitude($altitude) {}
+    public function render() {}
+}
+
+class Pinguin implements Aves {
+    public function setLocation($latitute, $longitude){}
+    public function setAltitude($altitude) {}
+    public function render() {}
+}
+
+function gsfgbsfa(Aves $ave){
+    $ave->render();
+}
