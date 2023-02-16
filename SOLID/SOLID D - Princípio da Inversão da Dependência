@@ -1,0 +1,31 @@
+SOLID: D - Princípio da Inversão da Dependência
+O que significa o conceito do Princípio da Inversão da Dependência do SOLID ?
+Princípio que indica a estratégia de depender de interfaces ou classes abstratas, ao invés de classes concretas.
+<?php
+
+interface DBConnection{
+    public function connect();
+}
+
+class MySQLConnection implements DBConnection{
+    public function connect(){}
+}
+class OracleConnection implements DBConnection{
+    public function connect(){}
+}
+class MongoConnection implements DBConnection{
+    public function connect(){}
+}
+
+class UsuarioDAO{
+    private $db;
+
+    public function __construct(MySQLConnection $dbCon){
+        $this->db = $dbCon ;
+    }
+}
+
+$dbCon = new OracleConnection(...); 
+
+$usuarioDao  = new UsuarioDAO($dbCon);
+$usuario2Dao = new UsuarioDAO($dbCon);

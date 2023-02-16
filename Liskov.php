@@ -35,6 +35,6 @@ function imprimeNome(A $obj){
 }
 
 $objeto1 = new A();
-$objeto1 = new B();
+$objeto2 = new B();
 echo imprimeNome($objeto1)."<br>";
 echo imprimeNome($objeto2);
