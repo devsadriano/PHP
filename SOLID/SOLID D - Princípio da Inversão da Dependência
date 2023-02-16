@@ -25,7 +25,7 @@ class UsuarioDAO{
     }
 }
 
-$dbCon = new OracleConnection(...); 
+//$dbCon = new OracleConnection(...); 
 
 $usuarioDao  = new UsuarioDAO($dbCon);
 $usuario2Dao = new UsuarioDAO($dbCon);

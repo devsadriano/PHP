@@ -1,0 +1,37 @@
+nunca salvo senha literal 
+$senha = '1234';
+
+entao como n o admim pode saber a senha pq ta encriptada
+entao geramos um hash p essa senha vamos encriptar e vmaos gerar um codigo q representa essa senha
+
+password_hash()
+essa funcao tem 2 parametros 
+1 propria senha
+2 tipo processo q ira utilizar p fazwer encript PASSWORD_DEFAULT
+
+
+$senha = '123';
+$hash = password_hash($senha, PASSWORD_DEFAULT);
+echo "SENHA ORIGINAL: ".$senha."<br/>";
+echo "HASH: ".$hash;
+
+SENHA ORIGINAL: 123
+HASH: $2y$10$1uWHvfzpJB4K5fn8sfS/Oer0XJXOTlpA7b1g5CiadH4Re7vu.W.sq
+
+n tenho como reverter essa encriptacao
+
+PASSWORD_DEFAULT o ele faz: gere o hash odo tipo q vc achar mais conveniente p esse momento
+
+PASSWORD_BCRYPT nesse ex ele vai gerar sempre usando essse metodo
+
+
+
+Sabe-se que encriptação de senha é algo a se pensar antes mesmo de pôr um sistema no ar que será acessado por vários usuários com suas respectivas contas cadastradas. Leia com atenção as proposições abaixo e julgue V para verdadeiro e F para falso.
+
+1 - É impossível descriptografar uma hash gerada com md5();
+
+2 - Para comparar a senha original com a hash criada com a função password_hash() usamos a função password_verify();
+
+3 - A função password_verify() retorna uma string.
+
+1 - F; 2 - V; 3 - F;
