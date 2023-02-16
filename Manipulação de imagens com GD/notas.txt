@@ -1,0 +1,12 @@
+imagefill(); 
+esse comando tem parametros
+1 propria imagem
+2 onde ele vai comecar a peencher 0 comeca da esqueda p direita
+3 posicao y de cima p baixo
+4 COR
+
+imagejpeg($imagem, 0, 0,);
+primeiro parametro imagem
+2 segundo onde agete vai salvar essa imagem  null n vai salvar so jogar na tela
+3 a qualidade jo jpeg
+ 
